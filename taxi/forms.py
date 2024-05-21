@@ -11,7 +11,7 @@ def validate_license_number(license_number) -> None:
         raise ValidationError(
             "The length of the license number must be 8 characters."
         )
-    if not license_number[:3].isupper():
+    if not (license_number[:3].isupper() and license_number[:3].isalpha()):
         raise ValidationError("The first 3 characters must be uppercase.")
     if not license_number[3:].isdigit():
         raise ValidationError("The last 5 characters must be digits.")
