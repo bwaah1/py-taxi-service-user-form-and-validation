@@ -108,6 +108,7 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
 
 
+@login_required
 def assign_driver(request: HttpRequest, pk: int) -> HttpResponse:
     driver = request.user
     car = Car.objects.get(id=pk)
@@ -119,6 +120,7 @@ def assign_driver(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, "taxi/assign_driver.html", context=context)
 
 
+@login_required
 def delete_driver(request: HttpRequest, pk: int) -> HttpResponse:
     driver = request.user
     car = Car.objects.get(id=pk)

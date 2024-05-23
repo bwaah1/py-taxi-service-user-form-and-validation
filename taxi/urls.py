@@ -50,14 +50,14 @@ urlpatterns = [
     path("cars/<int:pk>/assign_driver/", assign_driver, name="assign"),
     path("cars/<int:pk>/delete_driver/", delete_driver, name="delete"),
     path("drivers/", DriverListView.as_view(), name="driver-list"),
-    path("drivers/create", DriverCreateView.as_view(), name="driver-create"),
+    path("drivers/create/", DriverCreateView.as_view(), name="driver-create"),
     path(
-        "drivers/<int:pk>/update",
+        "drivers/<int:pk>/update/",
         DriverUpdateView.as_view(),
         name="driver-update"
     ),
     path(
-        "drivers/<int:pk>/delete",
+        "drivers/<int:pk>/delete/",
         DriverDeleteView.as_view(),
         name="driver-delete"
     ),
